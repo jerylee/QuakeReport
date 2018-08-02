@@ -44,19 +44,22 @@ public class EarthquakeActivity extends AppCompatActivity {
 //        earthquakes.add("Paris");
 
         // Create a fake list of earthquake magnitude,locations,date.
-        ArrayList<Earthquake> earthquakes = new ArrayList<>();
-        earthquakes.add(new Earthquake("7.2", "San Francisco", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("6.1", "London", "July 20, 2015"));
-        earthquakes.add(new Earthquake("3.9", "Tokyo", "Nov 10, 2014"));
-        earthquakes.add(new Earthquake("1.2", "Mexico City", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("0.2", "Rio de Janeiro", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("3.1", "Paris", "July 2, 2014"));
-        earthquakes.add(new Earthquake("7.2", "San Francisco", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("6.1", "London", "July 20, 2015"));
-        earthquakes.add(new Earthquake("3.9", "Tokyo", "Nov 10, 2014"));
-        earthquakes.add(new Earthquake("1.2", "Mexico City", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("0.2", "Rio de Janeiro", "Feb 2, 2016"));
-        earthquakes.add(new Earthquake("3.1", "Paris", "July 2, 2014"));
+//        ArrayList<Earthquake> earthquakes = new ArrayList<>();
+//        earthquakes.add(new Earthquake("7.2", "San Francisco", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("6.1", "London", "July 20, 2015"));
+//        earthquakes.add(new Earthquake("3.9", "Tokyo", "Nov 10, 2014"));
+//        earthquakes.add(new Earthquake("1.2", "Mexico City", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("0.2", "Rio de Janeiro", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("3.1", "Paris", "July 2, 2014"));
+//        earthquakes.add(new Earthquake("7.2", "San Francisco", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("6.1", "London", "July 20, 2015"));
+//        earthquakes.add(new Earthquake("3.9", "Tokyo", "Nov 10, 2014"));
+//        earthquakes.add(new Earthquake("1.2", "Mexico City", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("0.2", "Rio de Janeiro", "Feb 2, 2016"));
+//        earthquakes.add(new Earthquake("3.1", "Paris", "July 2, 2014"));
+
+        //call QueryUtils for get list of earth quakes from {@link QueryUtils}
+        ArrayList<Earthquake> earthquakes = QueryUtils.extractEarthquakes();
 
 
 
@@ -69,6 +72,7 @@ public class EarthquakeActivity extends AppCompatActivity {
 //                this, android.R.layout.simple_list_item_1, earthquakes);
 
         // Create a new {@link EarthquakeAdapter} of earthquakes
+
         EarthquakeAdapter adapter = new EarthquakeAdapter(this, earthquakes);
 
         Log.v(LOG_TAG, "Log Data :" + earthquakes.toString());
