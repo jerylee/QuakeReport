@@ -79,6 +79,7 @@ public class EarthquakeActivity extends AppCompatActivity {
 
         Log.v(LOG_TAG, "Log Data :" + earthquakes.toString());
 
+
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         earthquakeListView.setAdapter(adapter);
