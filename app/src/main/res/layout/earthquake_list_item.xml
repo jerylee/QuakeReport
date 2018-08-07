@@ -67,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:textStyle="bold"
             android:textColor="@color/textColorEarthquakeDetails"
             android:textSize="12sp"
             tools:text="Mar 6, 2010" />
