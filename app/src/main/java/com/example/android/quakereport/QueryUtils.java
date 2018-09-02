@@ -195,4 +195,5 @@ public final class QueryUtils {
         // Return the list of earthquakes
         return earthquakes;
     }
+
 }
