@@ -196,4 +196,5 @@ public final class QueryUtils {
         return earthquakes;
     }
 
+
 }
