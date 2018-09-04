@@ -30,7 +30,7 @@ import java.util.List;
 public class EarthquakeActivity extends AppCompatActivity {
 
     private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=6&limit=10";
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=2&limit=20";
 
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
 
