@@ -16,8 +16,11 @@
 package com.example.android.quakereport;
 
 import android.app.LoaderManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -85,6 +88,8 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = findViewById(R.id.list);
 
+        mEmptyStateTextView = findViewById(R.id.empty_view);
+        earthquakeListView.setEmptyView(mEmptyStateTextView);
 
         mAdapter = new EarthquakeAdapter(this, new ArrayList<Earthquake>());
         earthquakeListView.setAdapter(mAdapter);
@@ -120,15 +125,20 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
 //        EarthquakeAsyncTask task = new EarthquakeAsyncTask();
 //        task.execute(USGS_REQUEST_URL);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
-        LoaderManager loaderManager = getLoaderManager();
+        if (networkInfo != null && networkInfo.isConnected()) {
 
-        Log.i(LOG_TAG, "TEST: calling initLoader... ");
-        loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+            LoaderManager loaderManager = getLoaderManager();
 
-        mEmptyStateTextView = findViewById(R.id.empty_view);
-        earthquakeListView.setEmptyView(mEmptyStateTextView);
-
+            Log.i(LOG_TAG, "TEST: calling initLoader... ");
+            loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+        } else {
+            View loadingIndicator = findViewById(R.id.loading_spinner);
+            loadingIndicator.setVisibility(View.GONE);
+            mEmptyStateTextView.setText(R.string.no_internet_connection);
+        }
     }
 
     @Override
